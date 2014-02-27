@@ -1,0 +1,5 @@
+package battleship
+
+trait Ship {
+
+}

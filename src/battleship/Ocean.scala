@@ -1,19 +1,26 @@
 package battleship
 
 public class Ocean {
-  public Ocean(){
+
+  public Ocean(){ }
   
-  }
+  void placeAllShipsRandomnly(){ }
   
-  void placeAllShipsRandomnly(){
+  boolean  isOccupied(int row, int column){ }
   
-  }
-  boolean  isOccupied(int row, int column){
+  boolean shootAt(int row, int column){ }
   
-  }
-  boolean shootAt(int row, int column){
+  int getShotsFired(){ }
   
-  }
-  int get
+  int getHitCount(){ }
+  
+  int getShipsSunk(){ }
+  
+  boolean isGameOver(){ }
+  
+  Ship[] [] getShipArray(){ }
+  
+  @Override 
+  String toString(){ }
 
 }

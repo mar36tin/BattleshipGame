@@ -1,5 +1,5 @@
 package battleship
 
-class YellowSubmarine extends Ship {
+class Submarine extends Ship {
 
 }

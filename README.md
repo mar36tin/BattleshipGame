@@ -6,13 +6,13 @@ Team: Martin Gwarada, Don Sasikumar, Fitz
 ----------------------------------------------------
 Classes
 
-BattleshipGame
+BattleshipGame:
 This is the main class, containing the main method and a variable of type Ocean.
 
-Ocean
+Ocean:
 This contains a 10x10 grid of Ships which represents the “ocean”, and some methods to manipulate it.
 
-Ship
+Ship:
 This describes characteristics common to all the ships. It has the following sub- classes:
 	
 	AircraftCarrier — describes a ship with length 5.
@@ -23,6 +23,6 @@ This describes characteristics common to all the ships. It has the following sub
 	EmptySea — Describes a part of the ocean that doesn’t have a ship in it.
 	
 
-OceanTest
+OceanTest:
 This is a JUnit test class for Ocean. Tests will be done for every required method for Ocean, 
 including the constructor, but not including the toString() method. 

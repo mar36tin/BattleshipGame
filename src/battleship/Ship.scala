@@ -2,28 +2,28 @@ package battleship
 
 trait Ship {
 
-	abstract int getLength(){ }
+	abstract getLength(): int{ }
 	
-	int getBowRow(){ }
+	getBowRow(): int{ }
 	
-	int getBowColumn(){ }
+	getBowColumn(): int{ }
 	
-	boolean isHorizontal(int row){ }
+	isHorizontal(row: int): boolean{ }
 	
-	void setBowRow(int row){ }
+	setBowRow(row: int){ }
 	
-	void setBowColumn(int column){ }
+	setBowColumn(column: int){ }
 	
-	void setHorizontal(boolean horizontal){ }
+	setHorizontal(horizontal: boolean){ }
 	
 	abstract String getShipType(){ }
 	
-	boolean okToPlaceShipAt(int row, int column, boolean hori, Ocean ocean){ }
+	okToPlaceShipAt(row: int, column: int, hori: boolean, ocean: Ocean): boolean{ }
 	
-	void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) { }
+	placeShipAt(row: int, column: int, horizontal: boolean, ocean: Ocean) { }
 	
-	boolean shootAt(int row, int column){ }
+	shootAt(row: int, column: int): boolean{ }
 	
-	boolean isSunk(){ }
+	isSunk(): boolean{ }
 
 }

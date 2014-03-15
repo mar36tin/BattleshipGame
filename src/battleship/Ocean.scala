@@ -4,23 +4,22 @@ public class Ocean {
 
   public Ocean(){ }
   
-  void placeAllShipsRandomnly(){ }
+  placeAllShipsRandomnly(){ }
   
-  boolean  isOccupied(int row, int column){ }
+  isOccupied(int row, int column): boolean{ }
   
-  boolean shootAt(int row, int column){ }
+  shootAt(int row, int column): boolean{ }
   
-  int getShotsFired(){ }
+  getShotsFired(): int{ }
   
-  int getHitCount(){ }
+  getHitCount(): int{ }
   
-  int getShipsSunk(){ }
+  getShipsSunk(): int{ }
   
-  boolean isGameOver(){ }
+  isGameOver(): boolean{ }
   
-  Ship[] [] getShipArray(){ }
-  
-  @Override 
-  String toString(){ }
+  getShipArray(): Ship[][]{ }
+   
+  override toString(): String{ }
 
 }

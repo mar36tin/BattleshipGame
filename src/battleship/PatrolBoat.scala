@@ -1,5 +1,5 @@
 package battleship
 
-class PatrolBoat extends Ship{
+class PatrolBoat{
 
 }

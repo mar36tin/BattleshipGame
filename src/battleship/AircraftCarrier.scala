@@ -1,5 +1,5 @@
 package battleship
 
-class AircraftCarrier extends Ship{
+class AircraftCarrier {
 
 }

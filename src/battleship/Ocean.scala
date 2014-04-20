@@ -1,25 +1,22 @@
 package battleship
 
-public class Ocean {
+abstract class Ocean {
 
-  public Ocean(){ }
   
-  placeAllShipsRandomnly(){ }
+  def placeAllShipsRandomnly(){ }
   
-  isOccupied(int row, int column): boolean{ }
+  def isOccupied(row:Int, column:Int): Boolean{ }
   
-  shootAt(int row, int column): boolean{ }
+  def shootAt(row:Int, column:Int): Boolean{ }
   
-  getShotsFired(): int{ }
+  def getShotsFired(): Int{ }
   
-  getHitCount(): int{ }
+  def getHitCount(): Int{ }
   
-  getShipsSunk(): int{ }
+  def getShipsSunk(): Int{ }
   
-  isGameOver(): boolean{ }
+  def isGameOver(): Boolean{ }
   
-  getShipArray(): Ship[][]{ }
-   
-  override toString(): String{ }
+  def getShipArray()
 
 }

@@ -1,15 +1,18 @@
 package battleship
+  class EmptySea(
+      var length:Int
 
-class EmptySea extends Ship{
-
-	public EmptySea(){ }
-
-	override shootAt(row: int, column: int): boolean{ }
-
-	override isSunk(): boolean{ }
-
-	override def toString(): String{ }	 
-	
-	
-
+      ){
+  
+	length = 1
+  
+  
 }
+  
+
+	
+
+
+	
+	
+

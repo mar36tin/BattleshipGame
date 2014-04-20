@@ -1,29 +1,31 @@
 package battleship
 
+
+
 trait Ship {
 
-	abstract getLength(): int{ }
+	def getLength
 	
-	getBowRow(): int{ }
+	def getBowRow
 	
-	getBowColumn(): int{ }
+	def getBowColumn
 	
-	isHorizontal(row: int): boolean{ }
+	def isHorizontal
 	
-	setBowRow(row: int){ }
+	def setBowRow(row: Int)
 	
-	setBowColumn(column: int){ }
+	def setBowColumn(column: Int)
 	
-	setHorizontal(horizontal: boolean){ }
+	def setHorizontal(horizontal: Boolean){ }
 	
-	abstract String getShipType(){ }
+	def getShipType()
 	
-	okToPlaceShipAt(row: int, column: int, hori: boolean, ocean: Ocean): boolean{ }
+	def okToPlaceShipAt(row: Int, column: Int, hori: Boolean, ocean: Object): Boolean
 	
-	placeShipAt(row: int, column: int, horizontal: boolean, ocean: Ocean) { }
+	def placeShipAt(row: Int, column: Int, horizontal: Boolean, ocean: Object) 
 	
-	shootAt(row: int, column: int): boolean{ }
+	def shootAt(row: Int, column: Int): Boolean{ }
 	
-	isSunk(): boolean{ }
+	def isSunk(): Boolean{ }
 
 }

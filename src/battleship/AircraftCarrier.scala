@@ -56,3 +56,4 @@ class AircraftCarrier(
 		if(isSunk) "x" else "S"  
 	}
 }
+  

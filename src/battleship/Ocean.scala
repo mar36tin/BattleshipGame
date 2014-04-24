@@ -1,10 +1,11 @@
 package battleship
 
-class Ocean{
+class Ocean(){
 
-  def myArray = Array.ofDim[Int](10, 10)	
+	var myArray = Array.ofDim[Int](10, 10)
 
-  def placeAllShipsRandomnly()	={
+  def placeAllShipsRandomnly():Unit={	
+    
     var AircraftCarrier = 	Array(0,0,0,0,0,1,1,1,1,1);
     var Battleship = 		Array(0,0,0,0,0,0,1,1,1,1);
     var Submarine = 			Array(1,1,1,0,0,0,0,0,0,0);
@@ -18,8 +19,9 @@ class Ocean{
     myArray.update(7, Battleship);
     myArray.update(8, Destroyer1);
     myArray.update(9, Destroyer2);
-
-
+    
+    println("Ships in Sea");
+    println(myArray.deep.mkString("\n"))
 
   }
   

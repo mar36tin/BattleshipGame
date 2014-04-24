@@ -1,10 +1,9 @@
 package battleship
 
+trait Ship{
 
+	def getLength:Int
 
-trait Ship {
-
-	def getLength
 	
 	def getBowRow
 	

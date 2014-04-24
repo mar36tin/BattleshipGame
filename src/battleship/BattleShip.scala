@@ -1,7 +1,7 @@
 package battleship
 
-class Submarine(
-      length:Int = 3
+class BattleShip(
+      length:Int = 4
   ) extends Ship{
 
 	override def getLength:Int={
@@ -31,9 +31,8 @@ class Submarine(
 	
 	override def setHorizontal(horizontal: Boolean){ }
 	
-	
 	override def getShipType()={
-	  "Submarine"
+	  "BattleShip"
 	}
 	
 	override def okToPlaceShipAt(row: Int, column: Int, hori: Boolean, ocean: Object): Boolean={
@@ -52,9 +51,8 @@ class Submarine(
 	override def isSunk(): Boolean={ 
 	  false
 	}
-	
 	override def toString():String={
 		if(isSunk) "x" else "S"  
-	}	
+	}
 }
   

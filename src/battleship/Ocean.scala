@@ -52,20 +52,49 @@ class Ocean(){
          case 0 =>  false
          case 1 =>	hits+=1
          			PatrolBoatHit+=1
+         			println("PatrolBoat Hit count :"+PatrolBoatHit);
+         			if(PatrolBoatHit==1){
+         				PatrolBoatHitSunkFlag = true	
+         				shipsSunk+=1
+         				println("shipsSunk due to PatrolBoat gone down :"+shipsSunk);
+         			}
 		    	 	true
          case 2 =>	hits+=1
          			DestroyerHit+=1
+         			println("Destroyer Hit count :"+DestroyerHit);
+         			if(DestroyerHit==2){
+         				SubmarineHitSunkFlag = true	
+         				shipsSunk+=1
+         				println("shipsSunk due to Destroyer gone down :"+shipsSunk);
+         			}
 		    	 	true
          case 3 =>	hits+=1
          			SubmarineHit+=1
+         			println("Submarine Hit count :"+SubmarineHit);
+         			if(SubmarineHit==3){
+         				SubmarineHitSunkFlag = true	
+         				shipsSunk+=1
+         				println("shipsSunk due to Submarine gone down :"+shipsSunk);
+         			}
 		    	 	true
          case 4 =>	hits+=1
          			BattleshipHit+=1
+         			println("Battleship Hit count :"+AircraftCarrierHit);
+         			if(BattleshipHit==4){
+         				BattleshipHitSunkFlag = true	
+         				shipsSunk+=1
+         				println("shipsSunk due to Battleship gone down :"+shipsSunk);
+         			}
 		    	 	true
          case 5 =>	hits+=1
          			AircraftCarrierHit+=1
          			println("Aircraft Hit count :"+AircraftCarrierHit);
-		    	 	true		    	 	
+         			if(AircraftCarrierHit==5){
+         				AircraftCarrierSunkFlag = true	
+         				shipsSunk+=1
+         				println("shipsSunk due to Aircraft gone down :"+shipsSunk);
+         			}
+		    	 	true
          
        }
       
@@ -84,29 +113,6 @@ class Ocean(){
    }
 
    def getShipsSunk(): Int={ 
-		   if(AircraftCarrierSunkFlag==false && AircraftCarrierHit==5){
-		     shipsSunk+=1
-		     AircraftCarrierSunkFlag = true
-		   }
-		     
-		   if(BattleshipHitSunkFlag==false && BattleshipHit==4){
-		     shipsSunk+=1
-		     BattleshipHitSunkFlag = true
-		   }
-		   if(SubmarineHitSunkFlag==false && SubmarineHit==3){
-		     shipsSunk+=1	
-		     SubmarineHitSunkFlag = true
-		   }
-		   if(DestroyerHitSunkFlag==false && DestroyerHit==2){
-		     shipsSunk+=1
-		     DestroyerHitSunkFlag = true
-   			}
-		     
-		   if(PatrolBoatHitSunkFlag==false && PatrolBoatHit==1){
-		     shipsSunk+=1
-		     PatrolBoatHitSunkFlag = true
-		     
-		   }
 		     shipsSunk
    }
   

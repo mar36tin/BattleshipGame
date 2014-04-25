@@ -17,8 +17,8 @@ object BattleshipGame{
 	    println("Ships in Sea");
 	    println(ocean.getShipArray.deep.mkString("\n"))
 	    
-	    Iterator.continually(Console.readLine).takeWhile(_ != "exit").foreach(line => getUserInput)
-    
+	    while(ocean.isGameOver!=true)
+	      getUserInput
 
 
   }
@@ -26,7 +26,7 @@ object BattleshipGame{
 	def getUserInput(){
 
 	  
-	  	print("Enter row to Shoot At :")
+	  	print("\n\nEnter row to Shoot At :")
 	    var row:Int = Console.readInt
 	    println("Row entered :"+row)
 	    
@@ -43,9 +43,11 @@ object BattleshipGame{
 	    
 	    println("Ships in Sea");
 	    println(ocean.getShipArray.deep.mkString("\n"))
-	    
-	    println("Is game over? "+ocean.isGameOver)
-	    
+
+	    if(ocean.isGameOver)
+	      println("\nALL SHIPS SUNK!!!! GAME OVER")
+	      else
+	        println ("\nGame not over! Continue...")
 	}
   
 	

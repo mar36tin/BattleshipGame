@@ -25,25 +25,22 @@ object BattleshipGame{
 	
 	def getUserInput(){
 
-	  
 	  	print("\n\nEnter row to Shoot At :")
 	    var row:Int = Console.readInt
-	    println("Row entered :"+row)
-	    
-	    println("Enter column to Shoot At :")
+	    print("Enter column to Shoot At :")
 	    var column:Int = Console.readInt
-	    println("Column entered :"+column)
-	    
-	    println("ShootAt :"+ocean.shootAt(row, column))
-	    println("isOccupied :"+ocean.isOccupied(row, column))
-	    if(ocean.isOccupied(row, column))
-	      ocean.myArray(row)(column)=0
-	    ocean.getShotsFired
-	    ocean.getHitCount
-	    
-	    println("Ships in Sea");
-	    println(ocean.getShipArray.deep.mkString("\n"))
 
+	    
+	    ocean.shootAt(row, column)
+	    //println("\n\nisOccupied :"+ocean.isOccupied(row, column))
+	    if(ocean.isOccupied(row, column))
+	    	ocean.myArray(row)(column)=0
+	    //ocean.getShotsFired
+	    //ocean.getHitCount
+	    
+	    println("\nShips in Sea\n");
+	    println(ocean.getShipArray.deep.mkString("\n"))
+	    println("\n")
 	    if(ocean.isGameOver)
 	      println("\nALL SHIPS SUNK!!!! GAME OVER")
 	      else

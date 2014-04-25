@@ -18,6 +18,7 @@ class Ocean(){
 	var SubmarineHitSunkFlag = false;
 	var DestroyerHitSunkFlag = false;
 	var PatrolBoatHitSunkFlag = false;
+	
 
   def placeAllShipsRandomnly():Unit={	
     
@@ -39,10 +40,14 @@ class Ocean(){
   }
   
    def isOccupied(row:Int, column:Int): Boolean={
-     if(myArray(row)(column)==0)
+     if(myArray(row)(column)==0){
+    	 	println("MISS")
     	 	false
-     else
-    	 	true	 	
+     }
+     else{
+    	 	println("HIT")
+    	 	true	
+     }
    }
   
    def shootAt(row:Int, column:Int): Boolean={ 
@@ -52,47 +57,42 @@ class Ocean(){
          case 0 =>  false
          case 1 =>	hits+=1
          			PatrolBoatHit+=1
-         			println("PatrolBoat Hit count :"+PatrolBoatHit);
          			if(PatrolBoatHit==1){
          				PatrolBoatHitSunkFlag = true	
          				shipsSunk+=1
-         				println("shipsSunk due to PatrolBoat gone down :"+shipsSunk);
+         				println("You just sank a PatrolBoat!");
          			}
 		    	 	true
          case 2 =>	hits+=1
          			DestroyerHit+=1
-         			println("Destroyer Hit count :"+DestroyerHit);
          			if(DestroyerHit==2){
-         				SubmarineHitSunkFlag = true	
+         				DestroyerHitSunkFlag = true	
          				shipsSunk+=1
-         				println("shipsSunk due to Destroyer gone down :"+shipsSunk);
+         				println("You just sank a Destroyer!!");
          			}
 		    	 	true
          case 3 =>	hits+=1
          			SubmarineHit+=1
-         			println("Submarine Hit count :"+SubmarineHit);
          			if(SubmarineHit==3){
          				SubmarineHitSunkFlag = true	
          				shipsSunk+=1
-         				println("shipsSunk due to Submarine gone down :"+shipsSunk);
+         				println("You just sank a Submarine!!!");
          			}
 		    	 	true
          case 4 =>	hits+=1
          			BattleshipHit+=1
-         			println("Battleship Hit count :"+AircraftCarrierHit);
          			if(BattleshipHit==4){
          				BattleshipHitSunkFlag = true	
          				shipsSunk+=1
-         				println("shipsSunk due to Battleship gone down :"+shipsSunk);
+         				println("You just sank a Battleship!!!!");
          			}
 		    	 	true
          case 5 =>	hits+=1
          			AircraftCarrierHit+=1
-         			println("Aircraft Hit count :"+AircraftCarrierHit);
          			if(AircraftCarrierHit==5){
          				AircraftCarrierSunkFlag = true	
          				shipsSunk+=1
-         				println("shipsSunk due to Aircraft gone down :"+shipsSunk);
+         				println("You just sank an AircraftCarrier!!!!!");
          			}
 		    	 	true
          
@@ -102,23 +102,24 @@ class Ocean(){
    }
   
    def getShotsFired(): Int={ 
-     println("No of shots fired so far is:"+shotsFired)
+     println("Shots so far :"+shotsFired)
      shotsFired
      
    }
   
    def getHitCount(): Int={ 
-     println("No of hits so far is:"+hits)
+     println("Hits so far :"+hits)
      hits
    }
 
    def getShipsSunk(): Int={ 
-		     shipsSunk
+     println ("No of Ships Sunk so far :"+shipsSunk)
+	 shipsSunk
    }
   
    def isGameOver(): Boolean={ 
-     println ("No of Ships Sunk so far :"+shipsSunk)
-     if (getShipsSunk==5)
+     
+     if (shipsSunk==5)
        true
      else
        false

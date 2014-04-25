@@ -2,6 +2,8 @@ package battleship
   class EmptySea(
       length:Int = 1
   ) extends Ship{
+  
+  def name = 'E'
 
 	override def getLength:Int={
 	  length

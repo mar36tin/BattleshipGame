@@ -8,6 +8,10 @@ package battleship
 
 	
 	override def getShipType() = "EmptySea"
+
+	override def toString():String={
+		if(isSunk) "x" else "S"  
+	}
 	
 }
   

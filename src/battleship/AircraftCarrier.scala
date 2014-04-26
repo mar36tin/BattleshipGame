@@ -10,6 +10,10 @@ class AircraftCarrier(bowR:Int, bowCol:Int, hori:Boolean) extends Ship{
 	
 	override def getShipType() = "AircraftCarrier"
 	
+	override def toString():String={
+		if(isSunk) "x" else "S"  
+	}
+	
 }
   
   

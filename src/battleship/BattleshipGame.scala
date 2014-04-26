@@ -19,9 +19,19 @@ object BattleshipGame{
 	    
 	    println(ocean.placeAllShipsRandomnly)
 	    
-	    println("\nShips in Sea");
-	    println("0,0   0  1  2  3  4  5  6  7  8  9\n")
-	    
+	    println("Legends : ")
+	    println("S 		indicates location of fired at and hit a ship")
+	    println("- 		indicates location of fired at and found nothing")
+	    println(". 		indicates location never fired at")
+	    println("x 		indicates location of a sunken ship")
+	    println("a 		indicates location of an Aircraft")
+	    println("b 		indicates location of a Battleship")
+	    println("s 		indicates location of a Submarine")
+	    println("d 		indicates location of a Destroyer")
+	    println("p 		indicates location of a Patrol Boat")
+		println("\nShips in Sea\n");    
+	    println("0,0   0  1  2  3  4  5  6  7  8  9")
+
 	    println(ocean.getShipArray.deep.mkString("\n"))
 
 	    while(ocean.isGameOver!=true)
@@ -34,12 +44,9 @@ object BattleshipGame{
 	  	print("\nEnter row:")
 	    row = Console.readInt
 	    print("Enter column:")
-	    column = Console.readInt	    
+	    column = Console.readInt	
+	    ocean.isOccupied(row, column) 
 	    ocean.shootAt(row, column)
-	    if(ocean.isOccupied(row, column))
-	    	ocean.myArray(row)(column)='S'
-	    	else
-	    	ocean.myArray(row)(column)='-'  
 	    
 	    println("\n");
 	  	println("0,0   0  1  2  3  4  5  6  7  8  9\n")

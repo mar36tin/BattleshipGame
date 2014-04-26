@@ -41,11 +41,11 @@ class Ocean(){
   
    def isOccupied(row:Int, column:Int): Boolean={
      if(myArray(row)(column)==0){
-    	 	println("MISS")
+    	 	println("\n\nMISS")
     	 	false
      }
      else{
-    	 	println("HIT")
+    	 	println("\n\nHIT")
     	 	true	
      }
    }
@@ -60,7 +60,7 @@ class Ocean(){
          			if(PatrolBoatHit==1){
          				PatrolBoatHitSunkFlag = true	
          				shipsSunk+=1
-         				println("You just sank a PatrolBoat!");
+         				println("\nYou just sank a PatrolBoat!");
          			}
 		    	 	true
          case 2 =>	hits+=1
@@ -68,7 +68,7 @@ class Ocean(){
          			if(DestroyerHit==2){
          				DestroyerHitSunkFlag = true	
          				shipsSunk+=1
-         				println("You just sank a Destroyer!!");
+         				println("\nYou just sank a Destroyer!!");
          			}
 		    	 	true
          case 3 =>	hits+=1
@@ -76,7 +76,7 @@ class Ocean(){
          			if(SubmarineHit==3){
          				SubmarineHitSunkFlag = true	
          				shipsSunk+=1
-         				println("You just sank a Submarine!!!");
+         				println("\nYou just sank a Yellow Submarine!!!");
          			}
 		    	 	true
          case 4 =>	hits+=1
@@ -84,7 +84,7 @@ class Ocean(){
          			if(BattleshipHit==4){
          				BattleshipHitSunkFlag = true	
          				shipsSunk+=1
-         				println("You just sank a Battleship!!!!");
+         				println("\nYou just sank a Battleship!!!!");
          			}
 		    	 	true
          case 5 =>	hits+=1
@@ -92,7 +92,7 @@ class Ocean(){
          			if(AircraftCarrierHit==5){
          				AircraftCarrierSunkFlag = true	
          				shipsSunk+=1
-         				println("You just sank an AircraftCarrier!!!!!");
+         				println("\nYou just sank an AircraftCarrier!!!!!");
          			}
 		    	 	true
          
@@ -119,8 +119,9 @@ class Ocean(){
   
    def isGameOver(): Boolean={ 
      
-     if (shipsSunk==5)
+     if (shipsSunk==5){
        true
+     }
      else
        false
    }

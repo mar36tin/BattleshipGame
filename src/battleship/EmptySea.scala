@@ -1,61 +1,16 @@
 package battleship
-  class EmptySea(
-      length:Int = 1
-  ) extends Ship{
-  
-  def name = 'E'
-
-	override def getLength:Int={
-	  length
-	}
+  class EmptySea(bowR:Int, bowCol:Int, hori:Boolean) extends Ship{
 	
-	
-	override def getBowRow{
-	  
-	}
-	
-	override def getBowColumn{
-	  
-	}
-	
-	override def isHorizontal{
-	  
-	}
-	
-	override def setBowRow(row: Int){
-	  
-	}
-	
-	override def setBowColumn(column: Int){
-	  
-	}
-	
-	override def setHorizontal(horizontal: Boolean){ }
-	
-	override def getShipType(){
-	  
-	}
-	
-	override def okToPlaceShipAt(row: Int, column: Int, hori: Boolean, ocean: Object): Boolean={
-	  false
-	  
-	}
-	
-	override def placeShipAt(row: Int, column: Int, horizontal: Boolean, ocean: Object) {
-	  
-	}
-	
-	override def shootAt(row: Int, column: Int): Boolean={ 
-	  true
-	}
+	var bowRow:Int = bowR
+	var bowColumn:Int=bowCol
+	var horizontal:Boolean=hori
+	var length:Int=1
 
 	
-	override def toString():String={
-		if(isSunk) "x" else "S"  
-	}
+	override def getShipType() = "EmptySea"
+	
 }
   
-
 	
 
 

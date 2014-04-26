@@ -1,31 +1,72 @@
 package battleship
 
 trait Ship{
+	
+	var bowRow:Int
+	var bowColumn:Int
+	var horizontal:Boolean
+	var length:Int
+	var sunkFlag = false
 
-	def getLength:Int
+	
+	def getLength:Int = length
 
 	
-	def getBowRow
+	def getBowRow = bowRow
 	
-	def getBowColumn
+	def getBowColumn = bowColumn
 	
-	def isHorizontal
+
+
 	
-	def setBowRow(row: Int)
+	def isHorizontal: Boolean = {
+			horizontal
+	}
 	
-	def setBowColumn(column: Int)
+	def setBowRow(row: Int) = {
+		this.bowRow = bowRow
+	}
 	
-	def setHorizontal(horizontal: Boolean){ }
+	def setBowColumn(column: Int) = {
+		this.bowColumn = column
+	}
+	
+	def setHorizontal(horizontal: Boolean) = { 
+		this.horizontal = horizontal
+	}
 	
 	def getShipType()
 	
-	def okToPlaceShipAt(row: Int, column: Int, hori: Boolean, ocean: Object): Boolean
+	def okToPlaceShipAt(row: Int, column: Int, hori: Boolean, ocean: Ocean): Boolean = {
+		
+		
+		if(ocean.myArray(row)(column)==0){
+			return true
+		}
+		else {
+			return false
+		}
+	}
 	
-	def placeShipAt(row: Int, column: Int, horizontal: Boolean, ocean: Object) 
+	def placeShipAt(row: Int, column: Int, horizontal: Boolean, ocean: Object) = {
+		
+		this.setBowRow(row)
+		this.setBowColumn(column)
+		this.setHorizontal(horizontal)
+		
+		for(i <- 0 to (length-1)){
+			if (horizontal == true) {
+				
+			}else{
+			//REFERENCE TO A SHIP i.e. the tail of the ship
+			}
+		} 
+				
+		
+	}
 	
-	def shootAt(row: Int, column: Int): Boolean{ }
-	
-	var sunkFlag = false
+	def shootAt(row: Int, column: Int): Boolean = true
+		
 	
 	def isSunk(): Boolean={ 
 			sunkFlag

@@ -22,11 +22,18 @@ class Ocean(){
 	var destroyer = new Destroyer
 	var patrolBoat = new PatrolBoat
 	
-	var locationTuple = Tuple2(0,0)
-	var aircraftCarrierHitLocations = ListBuffer(locationTuple)
-	var battleShipHitLocations = List
-	var submarineHitLocations = List
-	var destroyerHitLocations = List
+	var aircraftTuple = Tuple2(0,0)
+	var aircraftCarrierHitLocations = ListBuffer(aircraftTuple)
+	
+	var battleshipTuple = Tuple2(0,0)
+	var battleshipHitLocations = ListBuffer(battleshipTuple)
+	
+	var submarineTuple = Tuple2(0,0)
+	var submarineHitLocations = ListBuffer(submarineTuple)
+
+	var destroyerTuple = Tuple2(0,0)
+	var destroyerHitLocations = ListBuffer(submarineTuple)
+
 	var patrolBoatHitLocations = List
 	
 
@@ -38,15 +45,18 @@ class Ocean(){
     var Destroyer1 = 		Array('.','.','d','.','.','.','.','.','.','.')
     var Destroyer2 = 		Array('.','.','d','.','.','.','.','.','.','.')
     var PatrolBoat = 		Array('.','.','p','.','.','.','.','.','.','.')
-    var EmptyRow  = 		Array('.','.','.','.','.','.','.','.','.','.')
+    var EmptyRow1  = 		Array('.','.','.','.','.','.','.','.','.','.')
+    var EmptyRow2  = 		Array('.','.','.','.','.','.','.','.','.','.')
+    var EmptyRow3  = 		Array('.','.','.','.','.','.','.','.','.','.')
+    var EmptyRow4  = 		Array('.','.','.','.','.','.','.','.','.','.')
     
     myArray.update(0, AircraftCarrier)
     myArray.update(1, Submarine);
-    myArray.update(2, EmptyRow);
+    myArray.update(2, EmptyRow1);
     myArray.update(3, PatrolBoat);
-    myArray.update(4, EmptyRow);
-    myArray.update(5, EmptyRow);
-    myArray.update(6, EmptyRow);
+    myArray.update(4, EmptyRow2);
+    myArray.update(5, EmptyRow3);
+    myArray.update(6, EmptyRow4);
     myArray.update(7, Battleship);
     myArray.update(8, Destroyer1);
     myArray.update(9, Destroyer2);
@@ -57,6 +67,8 @@ class Ocean(){
    def isOccupied(row:Int, column:Int): Boolean={
      myArray(row)(column) match {
        case '.' =>  println("\n\nMISS")
+    		   		false
+       case 'x' =>  println("\n\nMISS")
     		   		false
        case 'S' =>  println("\n\nHIT")
     		   		false  
@@ -81,14 +93,13 @@ class Ocean(){
        myArray(row)(column) match {
          case '.' =>    myArray(row)(column) = '-'
         		 		false
-        		 		
-         case 'p' =>	myArray(row)(column) = 'S'
+         case '-' => 	false       		 		
+         case 'p' =>	myArray(row)(column) = 'x'
            				hits+=1
 	         			PatrolBoatHit+=1
 	         			if(PatrolBoatHit==1){	
 	         				shipsSunk+=1
 	         				println("\nYou just sank a PatrolBoat!");
-	         				println("How long is the PatrolBoat? :"+patrolBoat.getLength)
 	         				patrolBoat.sunkFlag = true
 	         				println("Is patrolBoat Sunk? :"+patrolBoat.isSunk)         				
 	         			}
@@ -98,12 +109,17 @@ class Ocean(){
          case 'd' =>	myArray(row)(column) = 'S'
 			    	 	hits+=1
 	         			DestroyerHit+=1
+	         			destroyerTuple = (row,column)
+         				destroyerHitLocations.append(destroyerTuple)	         			
 	         			if(DestroyerHit==2){
 		         				shipsSunk+=1
 		         				println("\nYou just sank a Destroyer!!");
-		         				println("How long is the Destroyer? :"+destroyer.getLength)
 		         				destroyer.sunkFlag = true
 		         				println("Is destroyer Sunk? :"+destroyer.isSunk)
+		         				for(i<-destroyerHitLocations){
+			         				  if(myArray(i._1)(i._2)=='S')
+			         				    myArray(i._1)(i._2) = 'x'
+		         				}
 	         			}
 			    	 	true
 		    	 	
@@ -111,50 +127,58 @@ class Ocean(){
          case 's' =>	myArray(row)(column) = 'S'
 			    	 	hits+=1
 	         			SubmarineHit+=1
+	         			submarineTuple = (row,column)
+         				submarineHitLocations.append(submarineTuple)
 	         			if(SubmarineHit==3){
 		         				shipsSunk+=1
 		         				println("\nYou just sank a Yellow Submarine!!!");
-		         				println("How long is the Submarine? :"+submarine.getLength)
 		         				submarine.sunkFlag = true
 		         				println("Is submarine Sunk? :"+submarine.isSunk)
+		         				for(i<-submarineHitLocations){
+			         				  if(myArray(i._1)(i._2)=='S')
+			         				    myArray(i._1)(i._2) = 'x'
+	         				}
 	         			}
 			    	 	true
 		    	 	
          case 'b' =>	myArray(row)(column) = 'S'
 			    	 	hits+=1
 	         			BattleshipHit+=1
+	         			battleshipTuple = (row,column)
+         				battleshipHitLocations.append(battleshipTuple)
 	         			if(BattleshipHit==4){
 	         				shipsSunk+=1
 	         				println("\nYou just sank a Battleship!!!!");
-	         				println("How long is the Batteleship? :"+battleShip.getLength)
 	         				battleShip.sunkFlag = true
 	         				println("Is Battlship Sunk? :"+battleShip.isSunk)
+	         				for(i<-battleshipHitLocations){
+		         				  if(myArray(i._1)(i._2)=='S')
+		         				    myArray(i._1)(i._2) = 'x'
+	         				}	         				
 	         			}
 		    	 		true
 		    	 		
          case 'a' =>	myArray(row)(column) = 'S'
 		    	 		hits+=1
 	         			AircraftCarrierHit+=1
-	         			println("Is aircraft Sunk? :"+aircraftCarrier.isSunk)
-         				locationTuple = (row,column)
-         				aircraftCarrierHitLocations.append(locationTuple)
-	         			if(AircraftCarrierHit==5){
-	         			    
+         				aircraftTuple = (row,column)
+         				aircraftCarrierHitLocations.append(aircraftTuple)
+	         			if(AircraftCarrierHit==5){	         			    
 	         				shipsSunk+=1
 	         				println("\nYou just sank an AircraftCarrier!!!!!");
-	         				println("How long is the Aircraft? :"+aircraftCarrier.getLength)
 	         				aircraftCarrier.sunkFlag = true
-	         				println("Is aircraft Sunk? :"+aircraftCarrier.isSunk)
-	         				println("Aircraft Locations")
 	         				for(i<-aircraftCarrierHitLocations){
-	         				  if(myArray(i._1)(i._2)=='S')
-	         				    myArray(i._1)(i._2) = 'x'
+		         				  if(myArray(i._1)(i._2)=='S')
+		         				    myArray(i._1)(i._2) = 'x'
 	         				}
 	         			}
-         				myArray(row)(column)='x'
 		    	 		true
 		    	 		
-         case 'S' => 	true
+         case 'S' => 	hits+=1
+         				true
+         case 'x' =>	hits+=1
+           				false
+         				
 
        }
       

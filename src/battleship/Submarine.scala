@@ -10,6 +10,10 @@ class Submarine(bowR:Int, bowCol:Int, hori:Boolean) extends Ship{
 	
 	override def getShipType() = "Submarine"
 	
+	override def toString():String={
+		if(isSunk) "x" else "S"  
+	}
+	
 }
   
   

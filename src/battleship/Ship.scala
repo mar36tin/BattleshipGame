@@ -25,6 +25,10 @@ trait Ship{
 	
 	def shootAt(row: Int, column: Int): Boolean{ }
 	
-	def isSunk(): Boolean{ }
+	var sunkFlag = false
+	
+	def isSunk(): Boolean={ 
+			sunkFlag
+	}
 
 }

@@ -12,12 +12,13 @@ class Ocean(){
 	var SubmarineHit = 0;
 	var DestroyerHit = 0;
 	var PatrolBoatHit = 0;
+
 	
-	var AircraftCarrierSunkFlag = false;
-	var BattleshipHitSunkFlag = false;
-	var SubmarineHitSunkFlag = false;
-	var DestroyerHitSunkFlag = false;
-	var PatrolBoatHitSunkFlag = false;
+	var aircraftCarrier = new AircraftCarrier
+	var battleShip = new BattleShip
+	var submarine = new Submarine
+	var destroyer = new Destroyer
+	var patrolBoat = new PatrolBoat
 	
 
   def placeAllShipsRandomnly():Unit={	
@@ -62,42 +63,54 @@ class Ocean(){
          case 'e' =>  false
          case 'p' =>	hits+=1
          			PatrolBoatHit+=1
-         			if(PatrolBoatHit==1){
-         				PatrolBoatHitSunkFlag = true	
+         			if(PatrolBoatHit==1){	
          				shipsSunk+=1
          				println("\nYou just sank a PatrolBoat!");
+         				println("How long is the PatrolBoat? :"+patrolBoat.getLength)
+         				patrolBoat.sunkFlag = true
+         				println("Is patrolBoat Sunk? :"+patrolBoat.isSunk)         				
          			}
 		    	 	true
          case 'd' =>	hits+=1
          			DestroyerHit+=1
          			if(DestroyerHit==2){
-         				DestroyerHitSunkFlag = true	
          				shipsSunk+=1
          				println("\nYou just sank a Destroyer!!");
+         				println("How long is the Destroyer? :"+destroyer.getLength)
+         				destroyer.sunkFlag = true
+         				println("Is destroyer Sunk? :"+destroyer.isSunk)
          			}
 		    	 	true
          case 's' =>	hits+=1
          			SubmarineHit+=1
          			if(SubmarineHit==3){
-         				SubmarineHitSunkFlag = true	
          				shipsSunk+=1
          				println("\nYou just sank a Yellow Submarine!!!");
+         				println("How long is the Submarine? :"+submarine.getLength)
+         				submarine.sunkFlag = true
+         				println("Is submarine Sunk? :"+submarine.isSunk)
          			}
 		    	 	true
          case 'b' =>	hits+=1
          			BattleshipHit+=1
          			if(BattleshipHit==4){
-         				BattleshipHitSunkFlag = true	
          				shipsSunk+=1
          				println("\nYou just sank a Battleship!!!!");
+         				println("How long is the Batteleship? :"+battleShip.getLength)
+         				battleShip.sunkFlag = true
+         				println("Is Battlship Sunk? :"+battleShip.isSunk)
          			}
 		    	 	true
          case 'a' =>	hits+=1
          			AircraftCarrierHit+=1
+         			println("Is aircraft Sunk? :"+aircraftCarrier.isSunk)
          			if(AircraftCarrierHit==5){
-         				AircraftCarrierSunkFlag = true	
          				shipsSunk+=1
          				println("\nYou just sank an AircraftCarrier!!!!!");
+         				println("How long is the Aircraft? :"+aircraftCarrier.getLength)
+         				aircraftCarrier.sunkFlag = true
+         				println("Is aircraft Sunk? :"+aircraftCarrier.isSunk)
+         				
          				
          			}
 		    	 	true

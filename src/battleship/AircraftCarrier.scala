@@ -3,6 +3,7 @@ package battleship
 class AircraftCarrier(
       length:Int = 5
   ) extends Ship{
+  
 
 	override def getLength:Int={
 	  length
@@ -48,9 +49,7 @@ class AircraftCarrier(
 	  true
 	}
 	
-	override def isSunk(): Boolean={ 
-	  false
-	}
+
 	
 	override def toString():String={
 		if(isSunk) "x" else "S"  

@@ -48,10 +48,7 @@ package battleship
 	override def shootAt(row: Int, column: Int): Boolean={ 
 	  true
 	}
-	
-	override def isSunk(): Boolean={ 
-	  false
-	}
+
 	
 	override def toString():String={
 		if(isSunk) "x" else "S"  

@@ -49,9 +49,6 @@ class Submarine(
 	  true
 	}
 	
-	override def isSunk(): Boolean={ 
-	  false
-	}
 	
 	override def toString():String={
 		if(isSunk) "x" else "S"  

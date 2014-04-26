@@ -56,33 +56,6 @@ object BattleshipGame{
 	      }	        
 	}
 	
-	var es = new EmptySea(1)
-	def pp():String={
-		
-	var strArray = Array.ofDim[Char](10, 10)
-	println(strArray.deep.mkString("\n"))
-
-    var AircraftCarrier = 	Array('e','e','e','e','e','A','A','A','A','A')
-    var Battleship = 		Array('e','e','e','e','e','e','B','B','B','B')
-    var Submarine = 		Array('S','S','S','e','e','e','e','e','e','e')
-    var Destroyer1 = 		Array('e','e','D','e','e','e','e','e','e','e')
-    var Destroyer2 = 		Array('e','e','D','e','e','e','e','e','e','e')
-    var PatrolBoat = 		Array('e','e','P','e','e','e','e','e','e','e')
-    var EmptyRow  = 		Array('e','e','e','e','e','e','e','e','e','e')
-    strArray.update(0, AircraftCarrier)
-    strArray.update(1, Submarine);
-    strArray.update(2, EmptyRow);
-    strArray.update(3, PatrolBoat);
-    strArray.update(4, EmptyRow);
-    strArray.update(5, EmptyRow);
-    strArray.update(6, EmptyRow);
-    strArray.update(7, Battleship);
-    strArray.update(8, Destroyer1);
-    strArray.update(9, Destroyer2);
-    
-    println(strArray.deep.mkString("\n"))
-
-	    ""
-	}
+	
 
 }

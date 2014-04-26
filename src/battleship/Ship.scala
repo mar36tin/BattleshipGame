@@ -37,28 +37,43 @@ trait Ship{
 	
 	def getShipType()
 	
+	
 	def okToPlaceShipAt(row: Int, column: Int, hori: Boolean, ocean: Ocean): Boolean = {
 		
+		var count:Int = 0
+		for(i <- 0 until this.length) { 
+			//returns true if the position can 
+			if((ocean.myArray(row+i)(column)==0) && (hori)){ 
+				count = count+1
+				if (count == length){
+					return true
+				}
+			}
+						
+			if((ocean.myArray(row)(column+i)==0) && (hori!=false)) {
+				count = count+1
+				if (count == length){
+					return true
+				}
+				
+			}
 		
-		if(ocean.myArray(row)(column)==0){
-			return true
 		}
-		else {
-			return false
-		}
+		return false
 	}
 	
-	def placeShipAt(row: Int, column: Int, horizontal: Boolean, ocean: Object) = {
+	def placeShipAt(row: Int, column: Int, horizontal: Boolean, ocean: Ocean) = {
 		
 		this.setBowRow(row)
 		this.setBowColumn(column)
 		this.setHorizontal(horizontal)
 		
 		for(i <- 0 to (length-1)){
-			if (horizontal == true) {
-				
+			if (horizontal) {
+				ocean.myArray(row+i)(column)='a'
 			}else{
-			//REFERENCE TO A SHIP i.e. the tail of the ship
+			
+				ocean.myArray(row)(column+i)='a'
 			}
 		} 
 				

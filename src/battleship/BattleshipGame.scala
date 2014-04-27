@@ -9,13 +9,13 @@ object BattleshipGame{
 	var row:Int = 0
 	var column:Int = 0
 
-	
    def main(args:Array[String]){
 	    var count =0;
-	    var myArray = ocean.myArray	
+	    var myArray = ocean.ships
 	    
 	    println ("Empty Sea")
 	    println(myArray.deep.mkString("\n"))
+	    
 	    
 	    println(ocean.placeAllShipsRandomnly)
 	    
@@ -50,7 +50,7 @@ object BattleshipGame{
 	    
 	    println("\n");
 	  	println("0,0   0  1  2  3  4  5  6  7  8  9\n")
-	    println(ocean.myArray.deep.mkString("\n"))
+	    println(ocean.ships.deep.mkString("\n"))
 	    if(ocean.isGameOver){
 	      println("\nALL SHIPS SUNK!!!! GAME OVER")
 	      println("\nNo of shots required to sink all ships :"+ocean.shotsFired)

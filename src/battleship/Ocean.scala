@@ -4,7 +4,7 @@ import scala.collection.mutable.ListBuffer
 
 class Ocean(){
 
-	var myArray = Array.ofDim[Char](10, 10)
+	var ships = Array.ofDim[Char](10, 10)
 	var shotsFired = 0
 	var hits=0
 	var shipsSunk = 0;
@@ -55,22 +55,22 @@ class Ocean(){
     var EmptyRow3  = 		Array('.','.','.','.','.','.','.','.','.','.')
     var EmptyRow4  = 		Array('.','.','.','.','.','.','.','.','.','.')
     
-    myArray.update(0, AircraftCarrier)
-    myArray.update(1, Submarine);
-    myArray.update(2, EmptyRow1);
-    myArray.update(3, PatrolBoat);
-    myArray.update(4, EmptyRow2);
-    myArray.update(5, EmptyRow3);
-    myArray.update(6, EmptyRow4);
-    myArray.update(7, Battleship);
-    myArray.update(8, Destroyer1);
-    myArray.update(9, Destroyer2);
+    ships.update(0, AircraftCarrier)
+    ships.update(1, Submarine);
+    ships.update(2, EmptyRow1);
+    ships.update(3, PatrolBoat);
+    ships.update(4, EmptyRow2);
+    ships.update(5, EmptyRow3);
+    ships.update(6, EmptyRow4);
+    ships.update(7, Battleship);
+    ships.update(8, Destroyer1);
+    ships.update(9, Destroyer2);
     
 
   }
   
    def isOccupied(row:Int, column:Int): Boolean={
-     myArray(row)(column) match {
+     ships(row)(column) match {
        case '.' =>  println("\n\nMISS")
     		   		false
        case 'x' =>  println("\n\nMISS")
@@ -95,23 +95,22 @@ class Ocean(){
    def shootAt(row:Int, column:Int): Boolean={ 
        shotsFired+=1
        
-       myArray(row)(column) match {
-         case '.' =>    myArray(row)(column) = '-'
+       ships(row)(column) match {
+         case '.' =>    ships(row)(column) = '-'
         		 		false
          case '-' => 	false       		 		
-         case 'p' =>	myArray(row)(column) = 'x'
+         case 'p' =>	ships(row)(column) = 'x'
            				hits+=1
 	         			PatrolBoatHit+=1
 	         			if(PatrolBoatHit==1){	
 	         				shipsSunk+=1
 	         				println("\nYou just sank a PatrolBoat!");
-	         				patrolBoat.sunkFlag = true
-	         				println("Is patrolBoat Sunk? :"+patrolBoat.isSunk)         				
+	         				patrolBoat.sunkFlag = true   				
 	         			}
 			    	 	true
 			    	 	
 			    	 	
-         case 'd' =>	myArray(row)(column) = 'S'
+         case 'd' =>	ships(row)(column) = 'S'
 			    	 	hits+=1
 	         			DestroyerHit+=1
 	         			destroyerTuple = (row,column)
@@ -120,16 +119,15 @@ class Ocean(){
 		         				shipsSunk+=1
 		         				println("\nYou just sank a Destroyer!!");
 		         				destroyer.sunkFlag = true
-		         				println("Is destroyer Sunk? :"+destroyer.isSunk)
 		         				for(i<-destroyerHitLocations){
-			         				  if(myArray(i._1)(i._2)=='S')
-			         				    myArray(i._1)(i._2) = 'x'
+			         				  if(ships(i._1)(i._2)=='S')
+			         				    ships(i._1)(i._2) = 'x'
 		         				}
 	         			}
 			    	 	true
 		    	 	
 		    	 	
-         case 's' =>	myArray(row)(column) = 'S'
+         case 's' =>	ships(row)(column) = 'S'
 			    	 	hits+=1
 	         			SubmarineHit+=1
 	         			submarineTuple = (row,column)
@@ -138,15 +136,14 @@ class Ocean(){
 		         				shipsSunk+=1
 		         				println("\nYou just sank a Yellow Submarine!!!");
 		         				submarine.sunkFlag = true
-		         				println("Is submarine Sunk? :"+submarine.isSunk)
 		         				for(i<-submarineHitLocations){
-			         				  if(myArray(i._1)(i._2)=='S')
-			         				    myArray(i._1)(i._2) = 'x'
+			         				  if(ships(i._1)(i._2)=='S')
+			         				    ships(i._1)(i._2) = 'x'
 	         				}
 	         			}
 			    	 	true
 		    	 	
-         case 'b' =>	myArray(row)(column) = 'S'
+         case 'b' =>	ships(row)(column) = 'S'
 			    	 	hits+=1
 	         			BattleshipHit+=1
 	         			battleshipTuple = (row,column)
@@ -155,15 +152,14 @@ class Ocean(){
 	         				shipsSunk+=1
 	         				println("\nYou just sank a Battleship!!!!");
 	         				battleShip.sunkFlag = true
-	         				println("Is Battlship Sunk? :"+battleShip.isSunk)
 	         				for(i<-battleshipHitLocations){
-		         				  if(myArray(i._1)(i._2)=='S')
-		         				    myArray(i._1)(i._2) = 'x'
+		         				  if(ships(i._1)(i._2)=='S')
+		         				    ships(i._1)(i._2) = 'x'
 	         				}	         				
 	         			}
 		    	 		true
 		    	 		
-         case 'a' =>	myArray(row)(column) = 'S'
+         case 'a' =>	ships(row)(column) = 'S'
 		    	 		hits+=1
 	         			AircraftCarrierHit+=1
          				aircraftTuple = (row,column)
@@ -173,8 +169,8 @@ class Ocean(){
 	         				println("\nYou just sank an AircraftCarrier!!!!!");
 	         				aircraftCarrier.sunkFlag = true
 	         				for(i<-aircraftCarrierHitLocations){
-		         				  if(myArray(i._1)(i._2)=='S')
-		         				    myArray(i._1)(i._2) = 'x'
+		         				  if(ships(i._1)(i._2)=='S')
+		         				    ships(i._1)(i._2) = 'x'
 	         				}
 	         			}
 		    	 		true
@@ -216,7 +212,7 @@ class Ocean(){
    }
   
    def getShipArray()={
-     myArray
+     ships
    }
    
    override def toString():String={

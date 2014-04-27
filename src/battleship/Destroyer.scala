@@ -15,4 +15,8 @@ class Destroyer(bowR:Int, bowCol:Int, hori:Boolean) extends Ship{
 		if(isSunk) "x" else "S"  
 	}
 	
+	override def toString():String={
+		if(isSunk) "x" else "S"  
+	}
+	
 }

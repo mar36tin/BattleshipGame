@@ -1,7 +1,7 @@
 Overview
 
-Project: Battleship game
-Team: Martin Gwarada, Don Sasikumar, Fitz
+Project: Battleship Game
+Author: Martin Gwarada
 
 ----------------------------------------------------
 Classes

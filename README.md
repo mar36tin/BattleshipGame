@@ -1,6 +1,7 @@
 Overview
 
 Project: Battleship Game
+
 Author: Martin Gwarada
 
 ----------------------------------------------------

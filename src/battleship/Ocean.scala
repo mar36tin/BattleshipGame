@@ -16,12 +16,6 @@ class Ocean(){
 	var PatrolBoatHit = 0;
 
 	
-/*	var aircraftCarrier = new AircraftCarrier
-	var battleShip = new BattleShip
-	var submarine = new Submarine
-	var destroyer = new Destroyer
-	var patrolBoat = new PatrolBoat*/
-	
 	var aircraftCarrier = new AircraftCarrier(1,1,true)
 	var battleShip = new BattleShip(2,2,true)
 	var submarine = new Submarine(3,1,true)
